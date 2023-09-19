@@ -9,19 +9,15 @@ function FormDapil() {
 
   const [dapil, setDapil] = useState("");
 
-  const [body, setBody] = useState({
-    nama: "",
-    nik: "",
-    gender: "",
-    alamat: "",
-    tps: "",
-    id_kabupaten: "",
-    id_kecamatan: "",
-    id_kelurahan: "",
-    id_category: "",
-    id_sub_category: "",
-    id_upa: "",
-    id_bcad: "",
+  const [formData, setFormData] = useState({
+    anggota: "",
+    dpc: "",
+    dpra: "",
+    bpkk: "",
+    tn: "",
+    kepemudaan: "",
+    bko: "",
+    bpu: "",
   });
 
   const changeDapil = async (id) => {
@@ -32,6 +28,14 @@ function FormDapil() {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const dapils = useFetch("get", "/dapil");
@@ -50,7 +54,15 @@ function FormDapil() {
             {res.name}
           </option>
         ))}
-        <input placeholder="anggota" type="text" />
+        <h1>adasd</h1>
+        {/* <label htmlFor="anggota">Anggota: </label>
+        <input
+          type="text"
+          name="anggota"
+          placeholder="anggota"
+          value={formData.anggota}
+          onChange={handleInputChange}
+        /> */}
       </select>
     </div>
   );
