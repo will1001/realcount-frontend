@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useFetch from "@/API/useFetch";
 import axiosFetch from "@/API/axiosFetch";
+import InputText from "./inputText";
 
 function FormDapil() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -10,6 +11,7 @@ function FormDapil() {
   const [dapil, setDapil] = useState("");
 
   const [formData, setFormData] = useState({
+    id_dapil: "",
     anggota: "",
     dpc: "",
     dpra: "",
@@ -23,7 +25,10 @@ function FormDapil() {
   const changeDapil = async (id) => {
     try {
       // setBody({ ...body, id_kabupaten });
-
+      setFormData({
+        ...formData,
+        id_dapil: id,
+      });
       setDapil(id);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -36,6 +41,23 @@ function FormDapil() {
       ...formData,
       [name]: value,
     });
+  };
+  const saveTarget = async () => {
+    console.log(formData);
+    // const a = new FormData();
+    // a.append("file", formDataDPtDps.file);
+    // a.append("id_periode", idPeriode);
+    // dispatch(showOrHidePopUpDptDps({ type: null }));
+
+    {
+      await axiosFetch("post", `/target`, formData, "token")
+        .then((res) => {
+          // window.location.reload(false);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const dapils = useFetch("get", "/dapil");
@@ -54,16 +76,49 @@ function FormDapil() {
             {res.name}
           </option>
         ))}
-        <h1>adasd</h1>
-        {/* <label htmlFor="anggota">Anggota: </label>
-        <input
-          type="text"
-          name="anggota"
-          placeholder="anggota"
-          value={formData.anggota}
-          onChange={handleInputChange}
-        /> */}
       </select>
+
+      <InputText
+        title="anggota"
+        value={formData.anggota}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="dpc"
+        value={formData.dpc}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="dpra"
+        value={formData.dpra}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="bko"
+        value={formData.bko}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="bpkk"
+        value={formData.bpkk}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="bpu"
+        value={formData.bpu}
+        onChange={handleInputChange}
+      />
+      <InputText
+        title="kepemudaan"
+        value={formData.kepemudaan}
+        onChange={handleInputChange}
+      />
+      <InputText title="tn" value={formData.tn} onChange={handleInputChange} />
+
+      <br />
+      <button className="bg-blue-500 p-2" onClick={saveTarget}>
+        Simpan
+      </button>
     </div>
   );
 }

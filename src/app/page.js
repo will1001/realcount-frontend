@@ -5,6 +5,7 @@ import useFetch from "@/API/useFetch";
 import axiosFetch from "@/API/axiosFetch";
 import FormPemilih from "@/components/FormPemilih";
 import FormDapil from "@/components/FormDapil";
+import Checklist from "@/components/Checklist";
 
 export default function Home() {
   // useEffect(() => {
@@ -17,6 +18,8 @@ export default function Home() {
       <div className="bg-gray-200 p-4">
         {/* <FormPemilih /> */}
         <FormDapil />
+
+        {/* <Checklist /> */}
       </div>
       <div className="bg-blue-200 p-4"></div>
     </div>

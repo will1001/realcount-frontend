@@ -1,22 +1,20 @@
 import axios from "axios";
 
 const axiosFetch = (method, url, data = {}, token) => {
-  // const base_url = "https://api.sjpberkhidmat.id/";
   const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
-  // console.log(method);
   const headers = {};
   // const headers = {
   //   authorization: "Bearer " + token,
   // };
+
   const res = axios({
     method,
     url: base_url + url,
-    // headers,
-    // data,
+    headers,
+    data,
   });
 
-  //   return res;
   return res;
 };
 

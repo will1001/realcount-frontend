@@ -46,7 +46,12 @@ function FormPemilih() {
   };
   const changeCategory = async (id_category) => {
     try {
-      const res = await axiosFetch("GET", `/sub_category/${id_category}`);
+      const res = await axiosFetch(
+        "GET",
+        `/sub_category/${id_category}`,
+        {},
+        "token"
+      );
       setSubCategories(res.data);
       setCategory(id_category);
       setBody({ ...body, id_category });
@@ -122,23 +127,23 @@ function FormPemilih() {
       ) : (
         <h1></h1>
       )}
-      {/* {Number(category) > 3 ? (
-    <div className="flex flex-col gap-4">
-      <input placeholder="Nama" type="text" />
-      <input placeholder="NIK" type="text" />
-      <select name="" id="">
-        <option value={""} disabled>
-          Gender
-        </option>
-        <option value={"Laki - Laki"}>Laki - Laki</option>
-        <option value={"Perempuan"}>Perempuan</option>
-      </select>
-      <input placeholder="Alamat" type="text" />
-      <input placeholder="TPS" type="text" />
-    </div>
-  ) : (
-    <h1></h1>
-  )} */}
+      {Number(category) > 3 ? (
+        <div className="flex flex-col gap-4">
+          <input placeholder="Nama" type="text" />
+          <input placeholder="NIK" type="text" />
+          <select name="" id="">
+            <option value={""} disabled>
+              Gender
+            </option>
+            <option value={"Laki - Laki"}>Laki - Laki</option>
+            <option value={"Perempuan"}>Perempuan</option>
+          </select>
+          <input placeholder="Alamat" type="text" />
+          <input placeholder="TPS" type="text" />
+        </div>
+      ) : (
+        <h1></h1>
+      )}
     </div>
   );
 }
