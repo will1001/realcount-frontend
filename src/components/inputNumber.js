@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputText = ({ title, value, onChange }) => {
+const inputNumber = ({ title, value, onChange }) => {
   return (
     <div>
       <br />
@@ -16,4 +16,4 @@ const InputText = ({ title, value, onChange }) => {
   );
 };
 
-export default InputText;
+export default inputNumber;

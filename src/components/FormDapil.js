@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useFetch from "@/API/useFetch";
 import axiosFetch from "@/API/axiosFetch";
-import InputText from "./inputText";
+import InputText from "./inputNumber";
 
 function FormDapil() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
