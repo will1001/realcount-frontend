@@ -8,17 +8,21 @@ import FormDapil from "@/components/FormDapil";
 import Checklist from "@/components/Checklist";
 
 export default function Home() {
+  const [formType, setFormType] = useState("suara");
+
   const sumTotalData = (field, subfield) => {
     let property;
 
-    return targets?.data?.reduce((total, item) => {
-      if (field === null) {
-        property = item[subfield];
-      } else {
-        property = item[field][subfield];
-      }
-      return total + Number(property);
-    }, 0).toLocaleString();
+    return targets?.data
+      ?.reduce((total, item) => {
+        if (field === null) {
+          property = item[subfield];
+        } else {
+          property = item[field][subfield];
+        }
+        return total + Number(property);
+      }, 0)
+      .toLocaleString();
   };
   const data = [
     {
@@ -65,15 +69,42 @@ export default function Home() {
     },
   ];
 
+  const changeForm = (form) => {
+    setFormType(form);
+  };
+
   const targets = useFetch("get", "/target");
 
   return (
     <div className="grid grid-cols-1 gap-4">
       <div className="bg-gray-200 p-4">
-        {/* <FormPemilih /> */}
-        <FormDapil />
+        <div className="flex gap-3">
+          <h1
+            className="p-3 border border-black cursor-pointer"
+            onClick={() => changeForm("suara")}
+          >
+            Form Suara
+          </h1>
+          <h1
+            className="p-3 border border-black cursor-pointer"
+            onClick={() => changeForm("target")}
+          >
+            Form Target
+          </h1>
+        </div>
 
-        {/* <Checklist /> */}
+        {formType === "suara" ? (
+          <>
+            {" "}
+            <FormPemilih />
+            <Checklist />
+          </>
+        ) : (
+          <>
+            <FormDapil />{" "}
+          </>
+        )}
+        {/* <FormDapil /> */}
       </div>
       <div className="bg-blue-200 p-4">
         <table class="w-full table-auto border">
@@ -110,12 +141,16 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            {targets?.data? .map((item, i) => (
+            {targets?.data?.map((item, i) => (
               <tr>
                 <td class="border">{i + 1}</td>
                 <td class="border">{item?.dapil?.name}</td>
-                <td class="border">{item.dapil.jml_kecamatan.toLocaleString()}</td>
-                <td class="border">{item.dapil.jml_kelurahan.toLocaleString()}</td>
+                <td class="border">
+                  {item.dapil.jml_kecamatan.toLocaleString()}
+                </td>
+                <td class="border">
+                  {item.dapil.jml_kelurahan.toLocaleString()}
+                </td>
                 <td class="border">{item.dapil.jml_tps.toLocaleString()}</td>
                 <td class="border">{item.anggota.toLocaleString()}</td>
                 <td class="border">{item.dpc.toLocaleString()}</td>
