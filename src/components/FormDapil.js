@@ -12,14 +12,14 @@ function FormDapil() {
 
   const [formData, setFormData] = useState({
     id_dapil: "",
-    anggota: "",
-    dpc: "",
-    dpra: "",
-    bpkk: "",
-    tn: "",
-    kepemudaan: "",
-    bko: "",
-    bpu: "",
+    anggota: 0,
+    dpc: 0,
+    dpra: 0,
+    bpkk: 0,
+    tn: 0,
+    kepemudaan: 0,
+    bko: 0,
+    bpu: 0,
   });
 
   const changeDapil = async (id) => {
@@ -43,11 +43,7 @@ function FormDapil() {
     });
   };
   const saveTarget = async () => {
-    console.log(formData);
-    // const a = new FormData();
-    // a.append("file", formDataDPtDps.file);
-    // a.append("id_periode", idPeriode);
-    // dispatch(showOrHidePopUpDptDps({ type: null }));
+    if (formData.id_dapil === "") alert("Pilih Dapil Terlebih dahulu");
 
     {
       await axiosFetch("post", `/target`, formData, "token")
