@@ -43,9 +43,9 @@ function FormDapil() {
     });
   };
   const saveTarget = async () => {
-    if (formData.id_dapil === "") alert("Pilih Dapil Terlebih dahulu");
-
-    {
+    if (formData.id_dapil === "") {
+      alert("Pilih Dapil Terlebih dahulu");
+    } else {
       await axiosFetch("post", `/target`, formData, "token")
         .then((res) => {
           window.location.reload(false);
