@@ -10,9 +10,15 @@ import Checklist from "@/components/Checklist";
 export default function Home() {
   const sumTotalData = (field, subfield) => {
     let property;
-    if (field && subfield) property = item[field][subfield];
-    if (subfield) property = item[subfield];
-    return data.reduce((total, item) => total + Number(property), 0);
+
+    return targets?.data?.reduce((total, item) => {
+      if (field === null) {
+        property = item[subfield];
+      } else {
+        property = item[field][subfield];
+      }
+      return total + Number(property);
+    }, 0).toLocaleString();
   };
   const data = [
     {
@@ -59,8 +65,10 @@ export default function Home() {
     },
   ];
 
+  const targets = useFetch("get", "/target");
+
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 gap-4">
       <div className="bg-gray-200 p-4">
         {/* <FormPemilih /> */}
         <FormDapil />
@@ -102,35 +110,37 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            {data.map((item, i) => (
+            {targets?.data? .map((item, i) => (
               <tr>
                 <td class="border">{i + 1}</td>
-                <td class="border">{item.dapil.name}</td>
-                <td class="border">{item.dapil.jml_kecamatan}</td>
-                <td class="border">{item.dapil.jml_kelurahan}</td>
-                <td class="border">{item.dapil.jml_tps}</td>
-                <td class="border">{item.anggota}</td>
-                <td class="border">{item.dpc}</td>
-                <td class="border">{item.dpra}</td>
-                <td class="border">{item.bko}</td>
-                <td class="border">{item.bpkk}</td>
-                <td class="border">{item.bpu}</td>
-                <td class="border">{item.kepemudaan}</td>
-                <td class="border">{item.tn}</td>
+                <td class="border">{item?.dapil?.name}</td>
+                <td class="border">{item.dapil.jml_kecamatan.toLocaleString()}</td>
+                <td class="border">{item.dapil.jml_kelurahan.toLocaleString()}</td>
+                <td class="border">{item.dapil.jml_tps.toLocaleString()}</td>
+                <td class="border">{item.anggota.toLocaleString()}</td>
+                <td class="border">{item.dpc.toLocaleString()}</td>
+                <td class="border">{item.dpra.toLocaleString()}</td>
+                <td class="border">{item.bko.toLocaleString()}</td>
+                <td class="border">{item.bpkk.toLocaleString()}</td>
+                <td class="border">{item.bpu.toLocaleString()}</td>
+                <td class="border">{item.kepemudaan.toLocaleString()}</td>
+                <td class="border">{item.tn.toLocaleString()}</td>
               </tr>
             ))}
-            <tr>
+            <tr className="font-bold">
               <td class="border"></td>
               <td class="border"></td>
               <td class="border">{sumTotalData("dapil", "jml_kecamatan")}</td>
               <td class="border">{sumTotalData("dapil", "jml_kelurahan")}</td>
-              <td class="border">
-                {data.reduce(
-                  (total, item) => total + Number(item.dapil.jml_tps),
-                  0
-                )}
-              </td>
+              <td class="border">{sumTotalData("dapil", "jml_tps")}</td>
+              <td class="border">{sumTotalData(null, "anggota")}</td>
               <td class="border">{sumTotalData(null, "dpc")}</td>
+              <td class="border">{sumTotalData(null, "dpra")}</td>
+              <td class="border">{sumTotalData(null, "bko")}</td>
+              <td class="border">{sumTotalData(null, "bpkk")}</td>
+              <td class="border">{sumTotalData(null, "bpu")}</td>
+              <td class="border">{sumTotalData(null, "kepemudaan")}</td>
+              <td class="border">{sumTotalData(null, "tn")}</td>
             </tr>
           </tbody>
         </table>

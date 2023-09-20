@@ -52,7 +52,7 @@ function FormDapil() {
     {
       await axiosFetch("post", `/target`, formData, "token")
         .then((res) => {
-          // window.location.reload(false);
+          window.location.reload(false);
         })
         .catch((error) => {
           console.log(error);
