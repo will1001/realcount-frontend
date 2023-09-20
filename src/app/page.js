@@ -70,10 +70,10 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1 gap-4">
       <div className="bg-gray-200 p-4">
-        <FormPemilih />
-        {/* <FormDapil /> */}
+        {/* <FormPemilih /> */}
+        <FormDapil />
 
-        <Checklist />
+        {/* <Checklist /> */}
       </div>
       <div className="bg-blue-200 p-4">
         <table class="w-full table-auto border">
