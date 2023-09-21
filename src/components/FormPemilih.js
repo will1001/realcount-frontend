@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useFetch from "@/API/useFetch";
 import axiosFetch from "@/API/axiosFetch";
+// import Checklist from "./Checklist";
 
 function FormPemilih() {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
@@ -28,8 +29,48 @@ function FormPemilih() {
     id_category: "",
     id_sub_category: "",
     id_upa: "",
-    id_bcad: "",
+    id_dpr_level: [],
   });
+
+  const savePemilih = async () => {
+    console.log(body);
+    await axiosFetch("post", `/pemilih`, body, "token")
+      .then((res) => {
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const [items, setItems] = useState([
+    { id: 1, text: "DPR RI", checked: false },
+    { id: 2, text: "DPRD PROV", checked: false },
+    { id: 3, text: "DPRD KOTA", checked: false },
+  ]);
+
+  const handleCheckboxChange = (itemId) => {
+    const checked = items.find((item) => item.id === itemId);
+    console.log(checked.checked);
+
+    const updatedItems = items.map((item) =>
+      item.id === itemId ? { ...item, checked: !item.checked } : item
+    );
+
+    setItems(updatedItems);
+    if (!checked.checked) {
+      setBody({ ...body, id_dpr_level: [...body.id_dpr_level, itemId] });
+    } else {
+      setBody((body) => {
+        const newIdDprLevel = [...body.id_dpr_level];
+        newIdDprLevel.pop();
+        return {
+          ...body,
+          id_dpr_level: newIdDprLevel,
+        };
+      });
+    }
+  };
 
   const fetchData = async () => {
     try {
@@ -163,7 +204,7 @@ function FormPemilih() {
       <br />
       <br />
 
-      {[5].includes(Number(subCategory)) ? (
+      {[5, 6].includes(Number(subCategory)) ? (
         <select
           value={kecamatan}
           onChange={(e) => changeKecamatan(e.target.value)}
@@ -184,6 +225,7 @@ function FormPemilih() {
 
       {[6].includes(Number(subCategory)) ? (
         <select
+          name="id_kelurahan"
           value={body.id_kelurahan}
           onChange={handleInputChange}
           className="border border-[#9CA3AF] text-[18px] font-semibold mt-[16px] outline-0 cursor-pointer w-full px-2 py-2 rounded-md"
@@ -202,7 +244,12 @@ function FormPemilih() {
       )}
 
       {Number(category) === 1 ? (
-        <input placeholder={"Nama UPA"} type="text" />
+        <input
+          name="id_upa"
+          onChange={handleInputChange}
+          placeholder={"Nama UPA"}
+          type="text"
+        />
       ) : (
         <h1></h1>
       )}
@@ -213,18 +260,61 @@ function FormPemilih() {
       <h1 className="font-bold">Data Pemilih</h1>
 
       <div className="flex flex-col gap-4">
-        <input placeholder="Nama" type="text" />
-        <input placeholder="NIK" type="text" />
-        <select name="" id="">
+        <input
+          onChange={handleInputChange}
+          name="nama"
+          placeholder="Nama"
+          type="text"
+        />
+        <input
+          onChange={handleInputChange}
+          name="nik"
+          placeholder="NIK"
+          type="text"
+        />
+        <select name="gender" value={body.gender} onChange={handleInputChange}>
           <option value={""} disabled>
             Gender
           </option>
           <option value={"Laki - Laki"}>Laki - Laki</option>
           <option value={"Perempuan"}>Perempuan</option>
         </select>
-        <input placeholder="Alamat" type="text" />
-        <input placeholder="TPS" type="text" />
+        <input
+          name="alamat"
+          onChange={handleInputChange}
+          placeholder="Alamat"
+          type="text"
+        />
+        <input
+          name="tps"
+          onChange={handleInputChange}
+          placeholder="TPS"
+          type="text"
+        />
       </div>
+
+      <div>
+        <h2>Checklist</h2>
+        <ul>
+          {items.map((item) => (
+            <li key={item.id}>
+              <input
+                type="checkbox"
+                checked={item.checked}
+                onChange={() => handleCheckboxChange(item.id)}
+              />
+              {item.text}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <br />
+      <button className="bg-blue-500 p-2" onClick={savePemilih}>
+        Simpan
+      </button>
+
+      {/* <Checklist /> */}
 
       {/* {[3, 1].includes(Number(category)) ? (
         <div className="flex flex-col gap-4">
