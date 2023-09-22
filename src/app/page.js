@@ -3,9 +3,16 @@ import React, { useState, useEffect } from "react";
 import useFetch from "@/API/useFetch";
 import FormPemilih from "@/components/FormPemilih";
 import FormDapil from "@/components/FormDapil";
+import SuaraData from "@/components/SuaraData";
 
 export default function Home() {
   const [formType, setFormType] = useState("suara");
+
+  const [items, setItems] = useState([
+    { id: 1, text: "DPR RI", checked: false },
+    { id: 2, text: "DPRD PROV", checked: false },
+    { id: 3, text: "DPRD KOTA", checked: false },
+  ]);
 
   const sumTotalData = (field, subfield) => {
     let property;
@@ -27,7 +34,14 @@ export default function Home() {
   };
 
   const targets = useFetch("get", "/target");
-  const suarasRI = useFetch("get", "/suara?id_dpr_level=1");
+  const dapil1 = useFetch("get", "/suara?dapil=1");
+  const dapil2 = useFetch("get", "/suara?dapil=2");
+  const dapil3 = useFetch("get", "/suara?dapil=3");
+  const dapil4 = useFetch("get", "/suara?dapil=4");
+  const dapil5 = useFetch("get", "/suara?dapil=5");
+  const dapil6 = useFetch("get", "/suara?dapil=6");
+  const dapil7 = useFetch("get", "/suara?dapil=7");
+  const dapil8 = useFetch("get", "/suara?dapil=8");
   const suarasProv = useFetch("get", "/suara?id_dpr_level=2");
   const suarasKota = useFetch("get", "/suara?id_dpr_level=3");
 
@@ -145,14 +159,22 @@ export default function Home() {
           </>
         ) : (
           <>
-            <h1>Data Suara</h1>
+            {/* <h1>Data Suara</h1>
             <div>DPR RI = {suarasRI?.data ? suarasRI?.data[0].count : 0}</div>
             <div>
               DPR Prov = {suarasProv?.data ? suarasProv?.data[0].count : 0}
             </div>
             <div>
               DPR Kota = {suarasKota?.data ? suarasKota?.data[0].count : 0}
-            </div>
+            </div> */}
+            <SuaraData dapil={"1"} items={items} datas={dapil1} />
+            <SuaraData dapil={"2"} items={items} datas={dapil2} />
+            <SuaraData dapil={"3"} items={items} datas={dapil3} />
+            <SuaraData dapil={"4"} items={items} datas={dapil4} />
+            <SuaraData dapil={"5"} items={items} datas={dapil5} />
+            <SuaraData dapil={"6"} items={items} datas={dapil6} />
+            <SuaraData dapil={"7"} items={items} datas={dapil7} />
+            <SuaraData dapil={"8"} items={items} datas={dapil8} />
           </>
         )}
       </div>
