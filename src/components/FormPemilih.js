@@ -12,13 +12,14 @@ function FormPemilih() {
   const [kabupaten, setKabupaten] = useState("");
   const [kecamatan, setKecamatan] = useState("");
   const [kecamatans, setKecamatans] = useState("");
-  const [kelurahan, setKelurahan] = useState("");
+  const [dapil, setdapil] = useState("");
   const [kelurahans, setKelurahans] = useState("");
   const [category, setCategory] = useState("");
   const [subCategories, setSubCategories] = useState("");
   const [subCategory, setSubCategory] = useState("");
+  const [upas, setUpas] = useState("");
 
-  const username = useSelector((state) => state.user.username);
+  const admin_id_kabupaten = useSelector((state) => state.user.id_kabupaten);
   const admin_kabupaten = useSelector((state) => state.user.kabupaten);
 
   const [body, setBody] = useState({
@@ -76,14 +77,6 @@ function FormPemilih() {
     }
   };
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(baseUrl + "/hello");
-      console.log(response);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
   const changeKabupaten = async (id_kabupaten) => {
     try {
       const res = await axiosFetch(
@@ -94,6 +87,10 @@ function FormPemilih() {
       );
       setKecamatans(res.data);
 
+      if (["5271"].includes(id_kabupaten)) setdapil("Dapil 1");
+      if (["5201", "5208"].includes(id_kabupaten)) setdapil("Dapil 2");
+      if (["5207", "5204"].includes(id_kabupaten)) setdapil("Dapil 5");
+      if (["5206", "5272", "5205"].includes(id_kabupaten)) setdapil("Dapil 6");
       setBody({ ...body, id_kabupaten });
 
       setKabupaten(id_kabupaten);
@@ -104,6 +101,59 @@ function FormPemilih() {
 
   const changeKecamatan = async (id_kecamatan) => {
     try {
+      if (
+        [
+          "5203031",
+          "5203030",
+          "5203040",
+          "5203020",
+          "5203021",
+          "5203022",
+          "5203010",
+          "5203011",
+        ].includes(id_kecamatan)
+      ) {
+        setdapil("Dapil 4");
+      }
+      if (
+        ![
+          "5203031",
+          "5203030",
+          "5203040",
+          "5203020",
+          "5203021",
+          "5203022",
+          "5203010",
+          "5203011",
+        ].includes(id_kecamatan)
+      ) {
+        setdapil("Dapil 3");
+      }
+      if (
+        [
+          "5202060",
+          "5202061",
+          "5202040",
+          "5202050",
+          "5202090",
+          "5202091",
+        ].includes(id_kecamatan)
+      ) {
+        setdapil("Dapil 7");
+      }
+      if (
+        ![
+          "5202060",
+          "5202061",
+          "5202040",
+          "5202050",
+          "5202090",
+          "5202091",
+        ].includes(id_kecamatan)
+      ) {
+        setdapil("Dapil 8");
+      }
+
       const res = await axiosFetch(
         "GET",
         `/kelurahan/${id_kecamatan}`,
@@ -134,12 +184,19 @@ function FormPemilih() {
       console.error("Error fetching data:", error);
     }
   };
+
   const changeSubCategory = async (id_sub_category) => {
     try {
       // const res = await axiosFetch("get", `/subCategory/${id_category}`);
       // setSubCategories(res.data);
+      const res = await axiosFetch(
+        "GET",
+        `/upa?id_sub_category=${id_sub_category}`,
+        {},
+        "token"
+      );
+      setUpas(res.data);
       setBody({ ...body, id_sub_category });
-
       setSubCategory(id_sub_category);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -158,6 +215,7 @@ function FormPemilih() {
   const categories = useFetch("get", "/category");
   return (
     <div>
+      <h1>{dapil}</h1>
       {admin_kabupaten === "" ? (
         <select
           value={kabupaten}
@@ -174,7 +232,7 @@ function FormPemilih() {
           ))}
         </select>
       ) : (
-        <h1>Admin :  {admin_kabupaten}</h1>
+        <h1>Admin : {admin_kabupaten}</h1>
       )}
 
       <select
@@ -213,7 +271,7 @@ function FormPemilih() {
       <br />
       <br />
 
-      {[5, 6].includes(Number(subCategory)) ? (
+      {[1, 2, 3, 4, 7, 5, 6].includes(Number(subCategory)) ? (
         <select
           value={kecamatan}
           onChange={(e) => changeKecamatan(e.target.value)}
@@ -232,7 +290,7 @@ function FormPemilih() {
         <></>
       )}
 
-      {[6].includes(Number(subCategory)) ? (
+      {[1, 2, 3, 4, 7, 6].includes(Number(subCategory)) ? (
         <select
           name="id_kelurahan"
           value={body.id_kelurahan}
@@ -251,8 +309,30 @@ function FormPemilih() {
       ) : (
         <></>
       )}
+      {[1, 2, 3].includes(Number(subCategory)) ? (
+        <select
+          name="id_upa"
+          value={body.id_upa}
+          onChange={handleInputChange}
+          className="border border-[#9CA3AF] text-[18px] font-semibold mt-[16px] outline-0 cursor-pointer w-full px-2 py-2 rounded-md"
+        >
+          <option value={""} disabled>
+            Pilih Organisasi
+          </option>
+          {upas?.data?.map((res) => (
+            <option key={res._id} value={res._id}>
+              {res.name}
+            </option>
+          ))}
+        </select>
+      ) : (
+        <></>
+      )}
 
-      {Number(category) === 1 ? (
+      <br />
+      <br />
+
+      {[4, 7].includes(Number(subCategory)) ? (
         <input
           name="id_upa"
           onChange={handleInputChange}

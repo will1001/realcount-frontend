@@ -19,7 +19,6 @@ const HomePage = () => {
   ]);
 
   const username = useSelector((state) => state.user.username);
-  const kabupaten = useSelector((state) => state.user.kabupaten);
   const dispatch = useDispatch();
 
   const sumTotalData = (field, subfield) => {
@@ -105,6 +104,12 @@ const HomePage = () => {
             ) : (
               <>
                 {" "}
+                <h1
+                  className="p-3 border border-black cursor-pointer w-[80px]"
+                  onClick={() => logout()}
+                >
+                  Logout
+                </h1>
                 <FormPemilih />
               </>
             )}
@@ -116,7 +121,7 @@ const HomePage = () => {
       <div className="bg-blue-200 p-4">
         {formType === "target" ? (
           <>
-            <table class="w-full table-auto border">
+            <table class="w-full table-auto border text-center">
               <thead>
                 <tr>
                   <th class="border" colSpan={1} rowSpan={2}>
@@ -146,7 +151,7 @@ const HomePage = () => {
                   <th class="border">bpkk</th>
                   <th class="border">bpu</th>
                   <th class="border">kepemudaan</th>
-                  <th class="border">tn</th>
+                  <th class="border">tani nelayan</th>
                 </tr>
               </thead>
               <tbody>

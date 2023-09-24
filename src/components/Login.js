@@ -17,14 +17,15 @@ function Login() {
         if (res?.data) {
           console.log(res.data);
 
-            dispatch(
-              setToken({
-                token: res.data.access_token,
-                username: res.data?.user?.username,
-                kabupaten: res.data?.user?.kabupaten,
-              })
-            );
-            // window.location.reload(false);
+          dispatch(
+            setToken({
+              token: res.data.access_token,
+              username: res.data?.user?.username,
+              kabupaten: res.data?.user?.kabupaten,
+              id_kabupaten: res.data?.user?.id_kabupaten,
+            })
+          );
+          // window.location.reload(false);
         } else {
           return <p>Loading.....</p>;
         }
