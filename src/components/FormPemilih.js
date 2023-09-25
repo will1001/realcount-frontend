@@ -37,6 +37,8 @@ function FormPemilih() {
     id_dpr_level: [],
   });
 
+  useEffect(async () => {}, []);
+
   const savePemilih = async () => {
     console.log(body);
     await axiosFetch("post", `/pemilih`, body, "token")
@@ -171,6 +173,17 @@ function FormPemilih() {
   };
   const changeCategory = async (id_category) => {
     try {
+      if (admin_id_kabupaten !== "") {
+        await axiosFetch("get", `/kecamatan/${admin_id_kabupaten}`, {}, "token")
+          .then((res) => {
+            setKecamatans(res.data);
+
+            // window.location.reload(false);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
       const res = await axiosFetch(
         "GET",
         `/sub_category/${id_category}`,
@@ -189,12 +202,13 @@ function FormPemilih() {
     try {
       // const res = await axiosFetch("get", `/subCategory/${id_category}`);
       // setSubCategories(res.data);
-      const res = await axiosFetch(
-        "GET",
-        `/upa?id_sub_category=${id_sub_category}`,
-        {},
-        "token"
-      );
+      let url = ``;
+      if (admin_id_kabupaten === "") {
+        url = `/upa?id_sub_category=${id_sub_category}&id_kabupaten=${kabupaten}`;
+      } else {
+        url = `/upa?id_sub_category=${id_sub_category}&id_kabupaten=${admin_id_kabupaten}`;
+      }
+      const res = await axiosFetch("GET", `${url}`, {}, "token");
       setUpas(res.data);
       setBody({ ...body, id_sub_category });
       setSubCategory(id_sub_category);
