@@ -48,6 +48,7 @@ const HomePage = () => {
         kabupaten: "",
       })
     );
+    window.location.reload(false);
   };
 
   const targets = useFetch("get", "/target");

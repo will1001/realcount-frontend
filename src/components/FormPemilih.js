@@ -37,7 +37,14 @@ function FormPemilih() {
     id_dpr_level: [],
   });
 
-  useEffect(async () => {}, []);
+  useEffect(async () => {
+    if (admin_id_kabupaten !== "") {
+      if (["5271"].includes(admin_id_kabupaten)) setdapil("Dapil 1");
+      if (["5201", "5208"].includes(admin_id_kabupaten)) setdapil("Dapil 2");
+      if (["5207", "5204"].includes(admin_id_kabupaten)) setdapil("Dapil 5");
+      if (["5206", "5272", "5205"].includes(admin_id_kabupaten)) setdapil("Dapil 6");
+    }
+  }, []);
 
   const savePemilih = async () => {
     console.log(body);
@@ -118,15 +125,19 @@ function FormPemilih() {
         setdapil("Dapil 4");
       }
       if (
-        ![
-          "5203031",
-          "5203030",
-          "5203040",
-          "5203020",
-          "5203021",
-          "5203022",
-          "5203010",
-          "5203011",
+        [
+          "5203050",
+          "5203060",
+          "5203070",
+          "5203080",
+          "5203090",
+          "5203100",
+          "5203051",
+          "5203061",
+          "5203091",
+          "5203092",
+          "5203081",
+          "5203071",
         ].includes(id_kecamatan)
       ) {
         setdapil("Dapil 3");
@@ -144,13 +155,13 @@ function FormPemilih() {
         setdapil("Dapil 7");
       }
       if (
-        ![
-          "5202060",
-          "5202061",
-          "5202040",
-          "5202050",
-          "5202090",
-          "5202091",
+        [
+          "5202070",
+          "5202020",
+          "5202010",
+          "5202030",
+          "5202011",
+          "5202080",
         ].includes(id_kecamatan)
       ) {
         setdapil("Dapil 8");
