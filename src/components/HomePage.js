@@ -217,8 +217,9 @@ const HomePage = () => {
     <div>
       DPR Kota = {suarasKota?.data ? suarasKota?.data[0].count : 0}
     </div> */}
+                <div className="font-bold">DPR RI</div>
 
-                <table class="w-full table-auto border text-center">
+                <table class="w-full table-auto border text-center my-5">
                   <thead>
                     <tr>
                       <th class="border" colSpan={1} rowSpan={2}>
@@ -244,38 +245,94 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1} nomor={1} />
-                    <RowTableSuara data={dapil2} nomor={2} />
-                    <RowTableSuara data={dapil3} nomor={3} />
-                    <RowTableSuara data={dapil4} nomor={4} />
-                    <RowTableSuara data={dapil5} nomor={5} />
-                    <RowTableSuara data={dapil6} nomor={6} />
-                    <RowTableSuara data={dapil7} nomor={7} />
-                    <RowTableSuara data={dapil8} nomor={8} />
-
-                    {/* <tr className="font-bold">
-                      <td class="border"></td>
-                      <td class="border"></td>
-                    
-                      <td class="border">{sumTotalData(null, "anggota")}</td>
-                      <td class="border">{sumTotalData(null, "dpc")}</td>
-                      <td class="border">{sumTotalData(null, "dpra")}</td>
-                      <td class="border">{sumTotalData(null, "bko")}</td>
-                      <td class="border">{sumTotalData(null, "bpkk")}</td>
-                      <td class="border">{sumTotalData(null, "bpu")}</td>
-                      <td class="border">{sumTotalData(null, "kepemudaan")}</td>
-                      <td class="border">{sumTotalData(null, "tn")}</td>
-                    </tr> */}
+                    <RowTableSuara data={dapil1} nomor={1} index={0} />
+                    <RowTableSuara data={dapil2} nomor={2} index={0} />
+                    <RowTableSuara data={dapil3} nomor={3} index={0} />
+                    <RowTableSuara data={dapil4} nomor={4} index={0} />
+                    <RowTableSuara data={dapil5} nomor={5} index={0} />
+                    <RowTableSuara data={dapil6} nomor={6} index={0} />
+                    <RowTableSuara data={dapil7} nomor={7} index={0} />
+                    <RowTableSuara data={dapil8} nomor={8} index={0} />
                   </tbody>
                 </table>
-                {/* <SuaraData dapil={"1"} items={items} datas={dapil1} />
-            <SuaraData dapil={"2"} items={items} datas={dapil2} />
-            <SuaraData dapil={"3"} items={items} datas={dapil3} />
-            <SuaraData dapil={"4"} items={items} datas={dapil4} />
-            <SuaraData dapil={"5"} items={items} datas={dapil5} />
-            <SuaraData dapil={"6"} items={items} datas={dapil6} />
-            <SuaraData dapil={"7"} items={items} datas={dapil7} />
-            <SuaraData dapil={"8"} items={items} datas={dapil8} /> */}
+
+                <div className="font-bold">DPR Prov</div>
+
+                <table class="w-full table-auto border text-center my-5">
+                  <thead>
+                    <tr>
+                      <th class="border" colSpan={1} rowSpan={2}>
+                        No
+                      </th>
+                      <th class="border" colSpan={1} rowSpan={2}>
+                        Dapil
+                      </th>
+
+                      <th class="border" colSpan={8}>
+                        Progress suara
+                      </th>
+                    </tr>
+                    <tr>
+                      <th class="border">anggota</th>
+                      <th class="border">dpc</th>
+                      <th class="border">dpra</th>
+                      <th class="border">bko</th>
+                      <th class="border">bpkk</th>
+                      <th class="border">bpu</th>
+                      <th class="border">kepemudaan</th>
+                      <th class="border">tani nelayan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <RowTableSuara data={dapil1} nomor={1} index={1} />
+                    <RowTableSuara data={dapil2} nomor={2} index={1} />
+                    <RowTableSuara data={dapil3} nomor={3} index={1} />
+                    <RowTableSuara data={dapil4} nomor={4} index={1} />
+                    <RowTableSuara data={dapil5} nomor={5} index={1} />
+                    <RowTableSuara data={dapil6} nomor={6} index={1} />
+                    <RowTableSuara data={dapil7} nomor={7} index={1} />
+                    <RowTableSuara data={dapil8} nomor={8} index={1} />
+                  </tbody>
+                </table>
+
+                <div className="font-bold">DPR Kota</div>
+
+                <table class="w-full table-auto border text-center my-5">
+                  <thead>
+                    <tr>
+                      <th class="border" colSpan={1} rowSpan={2}>
+                        No
+                      </th>
+                      <th class="border" colSpan={1} rowSpan={2}>
+                        Dapil
+                      </th>
+
+                      <th class="border" colSpan={8}>
+                        Progress suara
+                      </th>
+                    </tr>
+                    <tr>
+                      <th class="border">anggota</th>
+                      <th class="border">dpc</th>
+                      <th class="border">dpra</th>
+                      <th class="border">bko</th>
+                      <th class="border">bpkk</th>
+                      <th class="border">bpu</th>
+                      <th class="border">kepemudaan</th>
+                      <th class="border">tani nelayan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <RowTableSuara data={dapil1} nomor={1} index={2} />
+                    <RowTableSuara data={dapil2} nomor={2} index={2} />
+                    <RowTableSuara data={dapil3} nomor={3} index={2} />
+                    <RowTableSuara data={dapil4} nomor={4} index={2} />
+                    <RowTableSuara data={dapil5} nomor={5} index={2} />
+                    <RowTableSuara data={dapil6} nomor={6} index={2} />
+                    <RowTableSuara data={dapil7} nomor={7} index={2} />
+                    <RowTableSuara data={dapil8} nomor={8} index={2} />
+                  </tbody>
+                </table>
               </>
             )}
           </>
