@@ -38,7 +38,7 @@ const page = () => {
 
   return (
     <div>
-      <h1 className="py-5 font-bold">Data Pemilih</h1>
+      <h1 className="py-5 font-bold">Data Pemilih ({searchParams.get("rekrut")})</h1>
       <table class="w-full table-auto border text-center">
         <thead>
           <tr>

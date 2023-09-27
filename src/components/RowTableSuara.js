@@ -10,7 +10,7 @@ function RowTableSuara({ data, nomor, index }) {
       <td
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
-          router.push(`detail?dapil=${nomor}&id_dpr_level=${index}&id_upa=ada`)
+          router.push(`detail?dapil=${nomor}&id_dpr_level=${index}&id_upa=ada&rekrut=UPA`)
         }
       >
         {data.data ? data?.data[index]?.anggota.toLocaleString() : 0}
@@ -19,7 +19,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_sub_category=5`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_sub_category=5&rekrut=DPC`
           )
         }
       >
@@ -29,7 +29,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_sub_category=6`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_sub_category=6&rekrut=DPRA`
           )
         }
       >
@@ -39,7 +39,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=5`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=5&rekrut=BKO`
           )
         }
       >
@@ -49,7 +49,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=4`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=4&rekrut=BPKK`
           )
         }
       >
@@ -59,7 +59,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=7`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=7&rekrut=BPU`
           )
         }
       >
@@ -69,7 +69,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=6`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=6&rekrut=KEPEMUDAAN`
           )
         }
       >
@@ -79,7 +79,7 @@ function RowTableSuara({ data, nomor, index }) {
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
           router.push(
-            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=8`
+            `detail?dapil=${nomor}&id_dpr_level=${index}&id_category=8&rekrut=TANI NELAYAN`
           )
         }
       >
