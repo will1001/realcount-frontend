@@ -223,9 +223,6 @@ const HomePage = () => {
                   <thead>
                     <tr>
                       <th class="border" colSpan={1} rowSpan={2}>
-                        No
-                      </th>
-                      <th class="border" colSpan={1} rowSpan={2}>
                         Dapil
                       </th>
 
@@ -262,9 +259,6 @@ const HomePage = () => {
                   <thead>
                     <tr>
                       <th class="border" colSpan={1} rowSpan={2}>
-                        No
-                      </th>
-                      <th class="border" colSpan={1} rowSpan={2}>
                         Dapil
                       </th>
 
@@ -300,9 +294,6 @@ const HomePage = () => {
                 <table class="w-full table-auto border text-center my-5">
                   <thead>
                     <tr>
-                      <th class="border" colSpan={1} rowSpan={2}>
-                        No
-                      </th>
                       <th class="border" colSpan={1} rowSpan={2}>
                         Dapil
                       </th>

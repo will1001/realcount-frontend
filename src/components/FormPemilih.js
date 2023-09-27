@@ -37,12 +37,13 @@ function FormPemilih() {
     id_dpr_level: [],
   });
 
-  useEffect(async () => {
+  useEffect(() => {
     if (admin_id_kabupaten !== "") {
       if (["5271"].includes(admin_id_kabupaten)) setdapil("Dapil 1");
       if (["5201", "5208"].includes(admin_id_kabupaten)) setdapil("Dapil 2");
       if (["5207", "5204"].includes(admin_id_kabupaten)) setdapil("Dapil 5");
-      if (["5206", "5272", "5205"].includes(admin_id_kabupaten)) setdapil("Dapil 6");
+      if (["5206", "5272", "5205"].includes(admin_id_kabupaten))
+        setdapil("Dapil 6");
     }
   }, []);
 

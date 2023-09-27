@@ -1,11 +1,16 @@
+import { useRouter } from "next/navigation";
 import React from "react";
 
-function RowTableSuara({ data, nomor ,index}) {
+function RowTableSuara({ data, nomor, index }) {
+  const router = useRouter();
+
   return (
     <tr>
-      <td class="border">{nomor}</td>
       <td class="border">dapil {nomor}</td>
-      <td class="border">
+      <td
+        class="border cursor-pointer underline text-blue-500"
+        onClick={() => router.push(`detail?id_dpr_level=${index}&id_upa=""`)}
+      >
         {data.data ? data?.data[index]?.anggota.toLocaleString() : 0}
       </td>
       <td class="border">
