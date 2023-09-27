@@ -217,7 +217,7 @@ const HomePage = () => {
     <div>
       DPR Kota = {suarasKota?.data ? suarasKota?.data[0].count : 0}
     </div> */}
-                <div className="font-bold">DPR RI</div>
+                {/* <div className="font-bold">DPR RI</div> */}
 
                 <table class="w-full table-auto border text-center my-5">
                   <thead>
@@ -227,7 +227,7 @@ const HomePage = () => {
                       </th>
 
                       <th class="border" colSpan={8}>
-                        Progress suara
+                        Progress suara (DPR RI)
                       </th>
                     </tr>
                     <tr>
@@ -253,7 +253,7 @@ const HomePage = () => {
                   </tbody>
                 </table>
 
-                <div className="font-bold">DPR Prov</div>
+                {/* <div className="font-bold">DPR Prov</div> */}
 
                 <table class="w-full table-auto border text-center my-5">
                   <thead>
@@ -263,7 +263,7 @@ const HomePage = () => {
                       </th>
 
                       <th class="border" colSpan={8}>
-                        Progress suara
+                        Progress suara (DPR Prov)
                       </th>
                     </tr>
                     <tr>
@@ -289,7 +289,7 @@ const HomePage = () => {
                   </tbody>
                 </table>
 
-                <div className="font-bold">DPR Kota</div>
+                {/* <div className="font-bold">DPR Kota</div> */}
 
                 <table class="w-full table-auto border text-center my-5">
                   <thead>
@@ -299,7 +299,7 @@ const HomePage = () => {
                       </th>
 
                       <th class="border" colSpan={8}>
-                        Progress suara
+                        Progress suara (DPR Kota)
                       </th>
                     </tr>
                     <tr>
