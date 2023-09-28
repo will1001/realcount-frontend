@@ -130,6 +130,14 @@ const HomePage = () => {
                     />
                     <br />
                     <br />
+                    <a
+                      className="underline cursor-pointer"
+                      href="https://docs.google.com/spreadsheets/d/1yanBY6rR4eWwU2E-s4TD_23WSYYmaU6nKPrBuYQIFNk/edit#gid=873587797"
+                    >
+                      Contoh format file
+                    </a>
+                    <br />
+                    <br />
                     <button className="bg-blue-500 p-2" onClick={upload}>
                       Simpan
                     </button>
