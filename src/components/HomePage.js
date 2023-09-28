@@ -131,7 +131,8 @@ const HomePage = () => {
                     <br />
                     <br />
                     <a
-                      className="underline cursor-pointer"
+                      className="underline cursor-pointer" 
+                      target="_blank"
                       href="https://docs.google.com/spreadsheets/d/1yanBY6rR4eWwU2E-s4TD_23WSYYmaU6nKPrBuYQIFNk/edit#gid=873587797"
                     >
                       Contoh format file
