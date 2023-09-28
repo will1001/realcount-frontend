@@ -9,9 +9,11 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setToken } from "@/redux/userReducer";
 import RowTableSuara from "./RowTableSuara";
+import axiosFetch from "@/API/axiosFetch";
 
 const HomePage = () => {
   const [formType, setFormType] = useState("suara");
+  const [file, setFile] = useState(null);
 
   const [items, setItems] = useState([
     { id: 1, text: "DPR RI", checked: false },
@@ -21,6 +23,21 @@ const HomePage = () => {
 
   const username = useSelector((state) => state.user.username);
   const dispatch = useDispatch();
+
+  const upload = async () => {
+    console.log("upload");
+
+    const a = new FormData();
+    a.append("file", file);
+
+    await axiosFetch("post", `/upload`, a, "token")
+      .then((res) => {
+        // window.location.reload(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const sumTotalData = (field, subfield) => {
     let property;
@@ -89,6 +106,12 @@ const HomePage = () => {
                   </h1>
                   <h1
                     className="p-3 border border-black cursor-pointer"
+                    onClick={() => changeForm("import")}
+                  >
+                    Form Import Excel
+                  </h1>
+                  <h1
+                    className="p-3 border border-black cursor-pointer"
                     onClick={() => logout()}
                   >
                     Logout
@@ -96,6 +119,21 @@ const HomePage = () => {
                 </div>
                 {formType === "suara" ? (
                   <> {/* <FormPemilih /> */}</>
+                ) : formType === "import" ? (
+                  <>
+                    <h1>Import Data</h1>
+                    <input
+                      onChange={(e) => {
+                        setFile(e.target.files[0]);
+                      }}
+                      type="file"
+                    />
+                    <br />
+                    <br />
+                    <button className="bg-blue-500 p-2" onClick={upload}>
+                      Simpan
+                    </button>
+                  </>
                 ) : (
                   <>
                     <FormDapil />{" "}
@@ -207,18 +245,10 @@ const HomePage = () => {
                   </tbody>
                 </table>
               </>
+            ) : formType === "import" ? (
+              <></>
             ) : (
               <>
-                {/* <h1>Data Suara</h1>
-    <div>DPR RI = {suarasRI?.data ? suarasRI?.data[0].count : 0}</div>
-    <div>
-      DPR Prov = {suarasProv?.data ? suarasProv?.data[0].count : 0}
-    </div>
-    <div>
-      DPR Kota = {suarasKota?.data ? suarasKota?.data[0].count : 0}
-    </div> */}
-                {/* <div className="font-bold">DPR RI</div> */}
-
                 <table class="w-full table-auto border text-center my-5">
                   <thead>
                     <tr>
