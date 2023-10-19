@@ -104,12 +104,7 @@ const HomePage = () => {
                   >
                     Form Target
                   </h1>
-                  <h1
-                    className="p-3 border border-black cursor-pointer"
-                    onClick={() => changeForm("import")}
-                  >
-                    Form Import Excel
-                  </h1>
+
                   <h1
                     className="p-3 border border-black cursor-pointer"
                     onClick={() => logout()}
@@ -131,7 +126,7 @@ const HomePage = () => {
                     <br />
                     <br />
                     <a
-                      className="underline cursor-pointer" 
+                      className="underline cursor-pointer"
                       target="_blank"
                       href="https://docs.google.com/spreadsheets/d/1yanBY6rR4eWwU2E-s4TD_23WSYYmaU6nKPrBuYQIFNk/edit#gid=873587797"
                     >
@@ -152,13 +147,53 @@ const HomePage = () => {
             ) : (
               <>
                 {" "}
-                <h1
-                  className="p-3 border border-black cursor-pointer w-[80px]"
-                  onClick={() => logout()}
-                >
-                  Logout
-                </h1>
-                <FormPemilih />
+                <div className="flex gap-3">
+                  <h1
+                    className="p-3 border border-black cursor-pointer"
+                    onClick={() => changeForm("suara")}
+                  >
+                    Progress Suara
+                  </h1>
+                  <h1
+                    className="p-3 border border-black cursor-pointer"
+                    onClick={() => changeForm("import")}
+                  >
+                    Form Import Excel
+                  </h1>
+                  <h1
+                    className="p-3 border border-black cursor-pointer w-[80px]"
+                    onClick={() => logout()}
+                  >
+                    Logout
+                  </h1>
+                </div>
+                {formType === "import" ? (
+                  <>
+                    <h1>Import Data</h1>
+                    <input
+                      onChange={(e) => {
+                        setFile(e.target.files[0]);
+                      }}
+                      type="file"
+                    />
+                    <br />
+                    <br />
+                    <a
+                      className="underline cursor-pointer"
+                      target="_blank"
+                      href="https://docs.google.com/spreadsheets/d/1yanBY6rR4eWwU2E-s4TD_23WSYYmaU6nKPrBuYQIFNk/edit#gid=873587797"
+                    >
+                      Contoh format file
+                    </a>
+                    <br />
+                    <br />
+                    <button className="bg-blue-500 p-2" onClick={upload}>
+                      Simpan
+                    </button>
+                  </>
+                ) : (
+                  <FormPemilih />
+                )}
               </>
             )}
           </>
