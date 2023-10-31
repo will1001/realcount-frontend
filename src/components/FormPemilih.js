@@ -28,7 +28,7 @@ function FormPemilih() {
     gender: "",
     alamat: "",
     tps: "",
-    id_kabupaten: "",
+    id_kabupaten: admin_id_kabupaten,
     id_kecamatan: "",
     id_kelurahan: "",
     id_category: "",
