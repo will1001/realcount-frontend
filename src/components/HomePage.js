@@ -69,14 +69,30 @@ const HomePage = () => {
   };
 
   const targets = useFetch("get", "/target");
-  const dapil1 = useFetch("get", "/suara?dapil=1");
-  const dapil2 = useFetch("get", "/suara?dapil=2");
-  const dapil3 = useFetch("get", "/suara?dapil=3");
-  const dapil4 = useFetch("get", "/suara?dapil=4");
-  const dapil5 = useFetch("get", "/suara?dapil=5");
-  const dapil6 = useFetch("get", "/suara?dapil=6");
-  const dapil7 = useFetch("get", "/suara?dapil=7");
-  const dapil8 = useFetch("get", "/suara?dapil=8");
+  const dapil1dpr1 = useFetch("get", "/suara?dapil=1&id_dpr_level=1");
+  const dapil2dpr1 = useFetch("get", "/suara?dapil=2&id_dpr_level=1");
+  const dapil3dpr1 = useFetch("get", "/suara?dapil=3&id_dpr_level=1");
+  const dapil4dpr1 = useFetch("get", "/suara?dapil=4&id_dpr_level=1");
+  const dapil5dpr1 = useFetch("get", "/suara?dapil=5&id_dpr_level=1");
+  const dapil6dpr1 = useFetch("get", "/suara?dapil=6&id_dpr_level=1");
+  const dapil7dpr1 = useFetch("get", "/suara?dapil=7&id_dpr_level=1");
+  const dapil8dpr1 = useFetch("get", "/suara?dapil=8&id_dpr_level=1");
+  const dapil1dpr2 = useFetch("get", "/suara?dapil=1&id_dpr_level=2");
+  const dapil2dpr2 = useFetch("get", "/suara?dapil=2&id_dpr_level=2");
+  const dapil3dpr2 = useFetch("get", "/suara?dapil=3&id_dpr_level=2");
+  const dapil4dpr2 = useFetch("get", "/suara?dapil=4&id_dpr_level=2");
+  const dapil5dpr2 = useFetch("get", "/suara?dapil=5&id_dpr_level=2");
+  const dapil6dpr2 = useFetch("get", "/suara?dapil=6&id_dpr_level=2");
+  const dapil7dpr2 = useFetch("get", "/suara?dapil=7&id_dpr_level=2");
+  const dapil8dpr2 = useFetch("get", "/suara?dapil=8&id_dpr_level=2");
+  const dapil1dpr3 = useFetch("get", "/suara?dapil=1&id_dpr_level=3");
+  const dapil2dpr3 = useFetch("get", "/suara?dapil=2&id_dpr_level=3");
+  const dapil3dpr3 = useFetch("get", "/suara?dapil=3&id_dpr_level=3");
+  const dapil4dpr3 = useFetch("get", "/suara?dapil=4&id_dpr_level=3");
+  const dapil5dpr3 = useFetch("get", "/suara?dapil=5&id_dpr_level=3");
+  const dapil6dpr3 = useFetch("get", "/suara?dapil=6&id_dpr_level=3");
+  const dapil7dpr3 = useFetch("get", "/suara?dapil=7&id_dpr_level=3");
+  const dapil8dpr3 = useFetch("get", "/suara?dapil=8&id_dpr_level=3");
   const suarasProv = useFetch("get", "/suara?id_dpr_level=2");
   const suarasKota = useFetch("get", "/suara?id_dpr_level=3");
 
@@ -316,14 +332,14 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1} nomor={1} index={0} />
-                    <RowTableSuara data={dapil2} nomor={2} index={0} />
-                    <RowTableSuara data={dapil3} nomor={3} index={0} />
-                    <RowTableSuara data={dapil4} nomor={4} index={0} />
-                    <RowTableSuara data={dapil5} nomor={5} index={0} />
-                    <RowTableSuara data={dapil6} nomor={6} index={0} />
-                    <RowTableSuara data={dapil7} nomor={7} index={0} />
-                    <RowTableSuara data={dapil8} nomor={8} index={0} />
+                    <RowTableSuara data={dapil1dpr1} nomor={1} index={0} />
+                    <RowTableSuara data={dapil2dpr1} nomor={2} index={0} />
+                    <RowTableSuara data={dapil3dpr1} nomor={3} index={0} />
+                    <RowTableSuara data={dapil4dpr1} nomor={4} index={0} />
+                    <RowTableSuara data={dapil5dpr1} nomor={5} index={0} />
+                    <RowTableSuara data={dapil6dpr1} nomor={6} index={0} />
+                    <RowTableSuara data={dapil7dpr1} nomor={7} index={0} />
+                    <RowTableSuara data={dapil8dpr1} nomor={8} index={0} />
                   </tbody>
                 </table>
 
@@ -352,14 +368,14 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1} nomor={1} index={1} />
-                    <RowTableSuara data={dapil2} nomor={2} index={1} />
-                    <RowTableSuara data={dapil3} nomor={3} index={1} />
-                    <RowTableSuara data={dapil4} nomor={4} index={1} />
-                    <RowTableSuara data={dapil5} nomor={5} index={1} />
-                    <RowTableSuara data={dapil6} nomor={6} index={1} />
-                    <RowTableSuara data={dapil7} nomor={7} index={1} />
-                    <RowTableSuara data={dapil8} nomor={8} index={1} />
+                    <RowTableSuara data={dapil1dpr2} nomor={1} index={0} />
+                    <RowTableSuara data={dapil2dpr2} nomor={2} index={0} />
+                    <RowTableSuara data={dapil3dpr2} nomor={3} index={0} />
+                    <RowTableSuara data={dapil4dpr2} nomor={4} index={0} />
+                    <RowTableSuara data={dapil5dpr2} nomor={5} index={0} />
+                    <RowTableSuara data={dapil6dpr2} nomor={6} index={0} />
+                    <RowTableSuara data={dapil7dpr2} nomor={7} index={0} />
+                    <RowTableSuara data={dapil8dpr2} nomor={8} index={0} />
                   </tbody>
                 </table>
 
@@ -388,14 +404,14 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1} nomor={1} index={2} />
-                    <RowTableSuara data={dapil2} nomor={2} index={2} />
-                    <RowTableSuara data={dapil3} nomor={3} index={2} />
-                    <RowTableSuara data={dapil4} nomor={4} index={2} />
-                    <RowTableSuara data={dapil5} nomor={5} index={2} />
-                    <RowTableSuara data={dapil6} nomor={6} index={2} />
-                    <RowTableSuara data={dapil7} nomor={7} index={2} />
-                    <RowTableSuara data={dapil8} nomor={8} index={2} />
+                    <RowTableSuara data={dapil1dpr3} nomor={1} index={0} />
+                    <RowTableSuara data={dapil2dpr3} nomor={2} index={0} />
+                    <RowTableSuara data={dapil3dpr3} nomor={3} index={0} />
+                    <RowTableSuara data={dapil4dpr3} nomor={4} index={0} />
+                    <RowTableSuara data={dapil5dpr3} nomor={5} index={0} />
+                    <RowTableSuara data={dapil6dpr3} nomor={6} index={0} />
+                    <RowTableSuara data={dapil7dpr3} nomor={7} index={0} />
+                    <RowTableSuara data={dapil8dpr3} nomor={8} index={0} />
                   </tbody>
                 </table>
               </>
