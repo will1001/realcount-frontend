@@ -65,7 +65,7 @@ const page = () => {
               <td className="border">{i + 1}</td>
               <td className="border">{item.nama}</td>
               {id_upa ? (
-                <td className="border">{item.sub_category?.name}</td>
+                <td className="border">{item.upa?.name}</td>
               ) : (
                 <></>
               )}
