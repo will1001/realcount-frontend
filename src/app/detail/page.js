@@ -67,7 +67,7 @@ const page = () => {
               {id_upa ? (
                 <td className="border">{item.upa?.name}</td>
               ) : (
-                <></>
+                <td className="border">{item?.id_upa}</td>
               )}
               <td className="border">{item.nik}</td>
               <td className="border">{item.gender}</td>
