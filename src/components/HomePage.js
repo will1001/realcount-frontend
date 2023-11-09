@@ -332,14 +332,54 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1dpr1} nomor={1} index={0} />
-                    <RowTableSuara data={dapil2dpr1} nomor={2} index={0} />
-                    <RowTableSuara data={dapil3dpr1} nomor={3} index={0} />
-                    <RowTableSuara data={dapil4dpr1} nomor={4} index={0} />
-                    <RowTableSuara data={dapil5dpr1} nomor={5} index={0} />
-                    <RowTableSuara data={dapil6dpr1} nomor={6} index={0} />
-                    <RowTableSuara data={dapil7dpr1} nomor={7} index={0} />
-                    <RowTableSuara data={dapil8dpr1} nomor={8} index={0} />
+                    <RowTableSuara
+                      data={dapil1dpr1}
+                      nomor={1}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil2dpr1}
+                      nomor={2}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil3dpr1}
+                      nomor={3}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil4dpr1}
+                      nomor={4}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil5dpr1}
+                      nomor={5}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil6dpr1}
+                      nomor={6}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil7dpr1}
+                      nomor={7}
+                      index={0}
+                      dprlevel={1}
+                    />
+                    <RowTableSuara
+                      data={dapil8dpr1}
+                      nomor={8}
+                      index={0}
+                      dprlevel={1}
+                    />
                   </tbody>
                 </table>
 
@@ -368,14 +408,54 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1dpr2} nomor={1} index={0} />
-                    <RowTableSuara data={dapil2dpr2} nomor={2} index={0} />
-                    <RowTableSuara data={dapil3dpr2} nomor={3} index={0} />
-                    <RowTableSuara data={dapil4dpr2} nomor={4} index={0} />
-                    <RowTableSuara data={dapil5dpr2} nomor={5} index={0} />
-                    <RowTableSuara data={dapil6dpr2} nomor={6} index={0} />
-                    <RowTableSuara data={dapil7dpr2} nomor={7} index={0} />
-                    <RowTableSuara data={dapil8dpr2} nomor={8} index={0} />
+                    <RowTableSuara
+                      data={dapil1dpr2}
+                      nomor={1}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil2dpr2}
+                      nomor={2}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil3dpr2}
+                      nomor={3}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil4dpr2}
+                      nomor={4}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil5dpr2}
+                      nomor={5}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil6dpr2}
+                      nomor={6}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil7dpr2}
+                      nomor={7}
+                      index={0}
+                      dprlevel={2}
+                    />
+                    <RowTableSuara
+                      data={dapil8dpr2}
+                      nomor={8}
+                      index={0}
+                      dprlevel={2}
+                    />
                   </tbody>
                 </table>
 
@@ -404,14 +484,54 @@ const HomePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <RowTableSuara data={dapil1dpr3} nomor={1} index={0} />
-                    <RowTableSuara data={dapil2dpr3} nomor={2} index={0} />
-                    <RowTableSuara data={dapil3dpr3} nomor={3} index={0} />
-                    <RowTableSuara data={dapil4dpr3} nomor={4} index={0} />
-                    <RowTableSuara data={dapil5dpr3} nomor={5} index={0} />
-                    <RowTableSuara data={dapil6dpr3} nomor={6} index={0} />
-                    <RowTableSuara data={dapil7dpr3} nomor={7} index={0} />
-                    <RowTableSuara data={dapil8dpr3} nomor={8} index={0} />
+                    <RowTableSuara
+                      data={dapil1dpr3}
+                      nomor={1}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil2dpr3}
+                      nomor={2}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil3dpr3}
+                      nomor={3}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil4dpr3}
+                      nomor={4}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil5dpr3}
+                      nomor={5}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil6dpr3}
+                      nomor={6}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil7dpr3}
+                      nomor={7}
+                      index={0}
+                      dprlevel={3}
+                    />
+                    <RowTableSuara
+                      data={dapil8dpr3}
+                      nomor={8}
+                      index={0}
+                      dprlevel={3}
+                    />
                   </tbody>
                 </table>
               </>

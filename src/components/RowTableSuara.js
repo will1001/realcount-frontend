@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import React from "react";
 
-function RowTableSuara({ data, nomor, index }) {
+function RowTableSuara({ data, nomor, index,dprlevel }) {
   const router = useRouter();
 
   return (
@@ -10,7 +10,7 @@ function RowTableSuara({ data, nomor, index }) {
       <td
         class="border cursor-pointer underline text-blue-500"
         onClick={() =>
-          router.push(`detail?dapil=${nomor}&id_dpr_level=${index}&id_upa=ada&rekrut=UPA`)
+          router.push(`detail?dapil=${nomor}&id_dpr_level=${dprlevel}&id_upa=ada&rekrut=UPA`)
         }
       >
         {data.data ? data?.data[index]?.anggota.toLocaleString() : 0}
